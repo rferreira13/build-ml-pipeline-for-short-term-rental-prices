@@ -13,3 +13,4 @@ dependencies:
   - ipywidgets
   - pip:
       - wandb==0.15.12
+      - matplotlib==3.7.2
