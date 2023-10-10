@@ -26,10 +26,14 @@ def go(args):
 
     data = pd.read_csv(artifact_local_path)
 
-    idx = data["price"].between(args.min_price,args.max_price)
-
     logger.info("Loaded artifact")
 
+    idx = data["price"].between(args.min_price,args.max_price)
+
+    data = data[idx].copy()
+
+    idx = data['longitude'].between(-74.25, -73.50) & data['latitude'].between(40.5, 41.2)
+    
     data = data[idx].copy()
 
     # Convert last_review to datetime
